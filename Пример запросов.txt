@@ -1,0 +1,35 @@
+Создание:
+
+import requests
+# Данные для создания нового поста
+new_post_data = {
+    "title": "New Post",
+    "content": "Content of the new post",
+    "author_id": 1}
+response = requests.post('http://localhost:5000/posts', json=new_post_data)
+print(response.json())
+
+
+Прочитать:
+
+import requests
+response = requests.get('http://localhost:5000/posts')
+print(response.json())
+
+
+Изменить:
+
+import requests
+post_id = 1
+updated_post_data = {
+    "title": "Updated Title",
+    "content": "Updated content"}
+response = requests.put(f'http://localhost:5000/posts/{post_id}', json=updated_post_data)
+print(response.json())
+
+Удалить:
+
+import requests
+post_id = 1
+response = requests.delete(f'http://localhost:5000/posts/{post_id}')
+print(response.json())
